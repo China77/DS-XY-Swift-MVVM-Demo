@@ -12,23 +12,23 @@ class Dog {
     var name: String
     var birthdate: Date
     var hasPedigree: Bool
-    var breed: String
-    var color: String
+    var finalValueBread: String
+    var finalValueColor: String
     let fiveYearsAndThreeMonths = 167615983.0
     
     init(name: String, birthdate: Date, hasPedigree: Bool, breed: String, color: String) {
         self.name = name
         self.birthdate = birthdate
         self.hasPedigree = hasPedigree
-        self.breed = breed
-        self.color = color
+        self.finalValueBread = breed
+        self.finalValueColor = color
     }
     
     init() {
-        self.name = "Buddy"
+        self.name = "attributedText"
         self.birthdate = Date(timeInterval: -fiveYearsAndThreeMonths, since: Date())
         self.hasPedigree = true
-        self.breed = "Beagle"
-        self.color = "Tricolor"
+        self.finalValueBread = "Beagle固定值"
+        self.finalValueColor = "Tricolor固定值"
     }
 }

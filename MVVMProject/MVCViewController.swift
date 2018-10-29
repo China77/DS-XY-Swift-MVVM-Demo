@@ -25,43 +25,28 @@ class MVCViewController: UIViewController {
     
     func updateScreen() {
         name.attributedText = getNameAttributedString()
-        breed.text = dog.breed
-        color.text = dog.color
+        breed.text = dog.finalValueBread
+        color.text = dog.finalValueColor
         age.text = getAgeString()
     }
     
     func getNameAttributedString() -> NSAttributedString {
         
-        let color = dog.hasPedigree ? UIColor.blue : UIColor.black
-        let name = dog.hasPedigree ? dog.name + "*" : dog.name
+        let tempRandom:Int = Int(arc4random()%100)+1 // 1-100
+        let color = tempRandom > 50 ? UIColor.blue : UIColor.red
+        dog.name = dog.name + " \(tempRandom)";
+        let name = tempRandom > 50 ? dog.name + " > 50" : dog.name + " <= 50"
         
         return NSAttributedString(string: name, attributes: [NSForegroundColorAttributeName: color])
     }
     
     func getAgeString() -> String {
         
-        let ageComponents = Calendar.current.dateComponents([.year, .month], from: dog.birthdate, to: Date())
+        //let ageComponents = Calendar.current.dateComponents([.year, .month], from: dog.birthdate, to: Date())
         
-        var result = ""
-        
-        if let years = ageComponents.year {
-            result = "\(years) year"
-            
-            if years > 1 {
-                result = "\(result)s"
-            }
-            result = "\(result) and"
-        }
-        
-        if let months = ageComponents.month {
-            result = "\(result) \(String(months)) month"
-            
-            if months > 1 {
-                result = "\(result)s"
-            }
-        }
-        
-        return "\(result) old"
+        var result = "业务逻辑 算法"
+        result = result + " method logic"
+        return "\(result) :)"
     }
 }
 
